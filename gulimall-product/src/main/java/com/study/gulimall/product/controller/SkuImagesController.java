@@ -23,7 +23,7 @@ import com.study.common.utils.R;
  *
  * @author hecui
  * @email hecui0709@163.com
- * @date 2022-09-09 23:45:44
+ * @date 2022-09-11 20:39:15
  */
 @RestController
 @RequestMapping("product/skuimages")

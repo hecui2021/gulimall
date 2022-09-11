@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.gulimall.product.entity.SpuInfoEntity;
-import com.study.gulimall.product.service.SpuInfoService;
+import com.study.gulimall.product.entity.AttrEntity;
+import com.study.gulimall.product.service.AttrService;
 import com.study.common.utils.PageUtils;
 import com.study.common.utils.R;
 
 
 
 /**
- * spu信息
+ * 商品属性
  *
  * @author hecui
  * @email hecui0709@163.com
  * @date 2022-09-11 20:39:15
  */
 @RestController
-@RequestMapping("product/spuinfo")
-public class SpuInfoController {
+@RequestMapping("product/attr")
+public class AttrController {
     @Autowired
-    private SpuInfoService spuInfoService;
+    private AttrService attrService;
 
     /**
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("product:spuinfo:list")
+    //@RequiresPermissions("product:attr:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = spuInfoService.queryPage(params);
+        PageUtils page = attrService.queryPage(params);
 
         return R.ok().put("page", page);
     }
@@ -46,21 +46,21 @@ public class SpuInfoController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    //@RequiresPermissions("product:spuinfo:info")
-    public R info(@PathVariable("id") Long id){
-		SpuInfoEntity spuInfo = spuInfoService.getById(id);
+    @RequestMapping("/info/{attrId}")
+    //@RequiresPermissions("product:attr:info")
+    public R info(@PathVariable("attrId") Long attrId){
+		AttrEntity attr = attrService.getById(attrId);
 
-        return R.ok().put("spuInfo", spuInfo);
+        return R.ok().put("attr", attr);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("product:spuinfo:save")
-    public R save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    //@RequiresPermissions("product:attr:save")
+    public R save(@RequestBody AttrEntity attr){
+		attrService.save(attr);
 
         return R.ok();
     }
@@ -69,9 +69,9 @@ public class SpuInfoController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("product:spuinfo:update")
-    public R update(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.updateById(spuInfo);
+    //@RequiresPermissions("product:attr:update")
+    public R update(@RequestBody AttrEntity attr){
+		attrService.updateById(attr);
 
         return R.ok();
     }
@@ -80,9 +80,9 @@ public class SpuInfoController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("product:spuinfo:delete")
-    public R delete(@RequestBody Long[] ids){
-		spuInfoService.removeByIds(Arrays.asList(ids));
+    //@RequiresPermissions("product:attr:delete")
+    public R delete(@RequestBody Long[] attrIds){
+		attrService.removeByIds(Arrays.asList(attrIds));
 
         return R.ok();
     }
