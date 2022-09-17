@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    alicloud:
+      access-key: LTAI5tLXifmA8RPYPvvcqCui
+      secret-key: D5tVQePpZiAeajdeV5JSFrvqXAqa8S
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: gulimall-peterche
+
+
+server:
+  port: 30000
